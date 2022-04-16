@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    background-color: #E5E5E5;
+}
+
+.topo {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    background-color: #FFFFFF;
+
+    position: relative;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+}
+
+.icon {
+    font-size: 40px;
+    color: black;
+
+    position: absolute;
+    top:16px;
+    right: 22px;
+}
+
+.imagem {
+    width: 75px;
+
+    position: absolute;
+    top: 16px;
+    left: 22px; 
+}
+
+.enviar-mensagem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 80px;
+    background-color: #FFFFFF;
+
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+
+}
+
+.enviar-mensagem input {
+    width: 60%;
+    border:hidden;
+    margin-left: 22px;
+}
+
+.enviar-mensagem .icon {
+    font-size: 26px;
+}
+
+.box-mensagem {
+    padding: 8px;
+    border-radius: 2px;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 4px;
+}
+
+.box-mensagem strong {
+    font-weight: bold;
+}
+
+.status-chat {
+    background-color:#DCDCDC;
+}
+
+.mensagem-todos {
+    background: #FFFFFF;
+}
+
+.mensagem-privada {
+    background: #FFDEDE;
+}
+
+.container {
+    margin-top: 26px;
+}
