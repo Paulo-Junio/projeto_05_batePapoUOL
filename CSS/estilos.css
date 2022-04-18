@@ -13,6 +13,7 @@ body {
     width: 100%;
     height: 80px;
     background-color: #FFFFFF;
+    margin-bottom: 26px;
 
     position: fixed;
     top: 0px;
@@ -22,7 +23,6 @@ body {
 
 .icon {
     font-size: 40px;
-    color: black;
     margin-right: 22px;
 }
 
@@ -46,10 +46,10 @@ body {
 }
 
 .enviar-mensagem input {
-    width: 50%;
+    width: 60%;
+    height: 40%;
     border:hidden;
     margin-left: 22px;
-    background-color: red;
 }
 
 .enviar-mensagem .icon button {
@@ -88,6 +88,6 @@ body {
 }
 
 .container {
-    margin-top: 106px;
+    margin-top: 80px;
     margin-bottom: 80px;
 }

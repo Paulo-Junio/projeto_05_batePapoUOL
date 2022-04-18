@@ -1,6 +1,8 @@
 let usuario;
 let idInterval;
+let idItervalUpload;
 let numeroDeMensagens=0;
+let cont=1;
 
 function entrarNaSala () {
     console.log("entrarNaSala ()");
@@ -11,7 +13,9 @@ function entrarNaSala () {
     let respostaLogin= axios.post("https://mock-api.driven.com.br/api/v6/uol/participants ",loginUsuario)
     console.log(loginUsuario)
     respostaLogin.then(manterConexao)
-    respostaLogin.catch(entrarNaSala)
+    respostaLogin.catch(atualizarPagina)
+    idInterval = setInterval(manterConexao, 5000)
+    setInterval(carregarMensagem, 3000)
     
 }
 
@@ -21,36 +25,28 @@ function manterConexao() {
         name: usuario
     };
     axios.post("https://mock-api.driven.com.br/api/v6/uol/status", statusConexao);
-    carregarMensagem()
+    if (cont === 1) {
+        carregarMensagem()
+        cont++
+    }
+}
 
+function atualizarPagina (respose){
+    window.location.reload()
 }
 
 function carregarMensagem() {
     const buscarMensagens = axios.get("https://mock-api.driven.com.br/api/v6/uol/messages")
-    buscarMensagens.then(renderizarMensagens)
-}
-
-function atualizarmensagens(resposta) {
-    let response = resposta;
-    imprimirMensagens(response)
-}
-
-function renderizarMensagens(resposta) {
-    let response = resposta;
-    imprimirMensagens(response)
-    setInterval(uploadNovasMensagens,3000)
-}
-
-function uploadNovasMensagens() {
-    const buscarMensagens = axios.get("https://mock-api.driven.com.br/api/v6/uol/messages");
-    buscarMensagens.then(atualizarmensagens);
+    buscarMensagens.then(imprimirMensagens)
 }
 
 function imprimirMensagens(resposta) {
     let quantidadeMensagens = resposta.data.length;
     console.log(quantidadeMensagens)
+    console.log("numero")
+    console.log(numeroDeMensagens)
     let mensagensRecuperadas = resposta.data;
-    for (let i=numeroDeMensagens; i<quantidadeMensagens; i++){
+    for (let i=(quantidadeMensagens-20); i<quantidadeMensagens; i++){
         console.log("renderizarMensagens(for)");
         const privacidadeMensagem =mensagensRecuperadas[i].type;
         let chat= document.querySelector(".mensagens");
@@ -77,11 +73,13 @@ function imprimirMensagens(resposta) {
             </div>`
         }
     }
+    const elementoQueAparece = document.querySelector(".mensagens").lastElementChild;
+    elementoQueAparece.scrollIntoView()
     numeroDeMensagens = quantidadeMensagens;
 }
 
 function enviarMengagem() {
-    let mensagem =document.querySelector(".enviar-mensagem input").innerHTML;
+    let mensagem =document.querySelector(".enviar-mensagem input").value;
     console.log(mensagem)
     let criarMensagem = {
         from: usuario,
@@ -89,8 +87,8 @@ function enviarMengagem() {
         text: mensagem,
         type: "message"
     }
-
     axios.post("https://mock-api.driven.com.br/api/v6/uol/messages", criarMensagem)
+    document.querySelector(".enviar-mensagem input").value="";
 }
 
 entrarNaSala()
