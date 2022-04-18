@@ -19,39 +19,19 @@
   </div>
   <div class="container">
     <div class="mensagens">
-            <div class="box-mensagem status-chat">
-                <span>(09:21:45)</span>
-                <span><strong>João</strong> entra na sala...</span>
-            </div>
-            <div class="box-mensagem mensagem-todos">
-                <span>(09:21:45)</span>
-                <span><strong>João</strong> para <strong>Todos</strong>: Bom dia</span>
-            </div>
-            <div class="box-mensagem mensagem-todos">
-                <span>(09:21:45)</span>
-                <span><strong>Maria</strong> para <strong>João</strong>: Bom dia :)</span>
-            </div>
-            <div class="box-mensagem mensagem-privada">
-                <span>(09:21:45)</span>
-                <span><strong>João</strong> reservadamente para <strong>Maria</strong>: Oi gatinha quer tc?</span>
-            </div>
-            <div class="box-mensagem status-chat">
-                <span>(09:21:45)</span>
-                <span><strong>João</strong> sai da sala...</span>
-            </div>
-        </div>
+           
     </div>
 
   </div>
   <div class="enviar-mensagem">
-      <input type="text" value="Escreva aqui..."> 
+      <input type="text" placeholder="Escreva aqui..."> 
       <div class="icon">
-          <ion-icon name="paper-plane-outline"></ion-icon>
+          <button onclick="enviarMengagem()"><ion-icon name="paper-plane-outline"></ion-icon></button>
         </div>
   </div>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
-    <script src="scripts.js"></script>
+    <script src="./scripts/scripts.js"></script>
 </body>
 </html>
